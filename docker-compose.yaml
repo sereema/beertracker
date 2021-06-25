@@ -1,0 +1,9 @@
+services:
+    backend:
+        build: 
+            context: .
+        command: gunicorn --bind 0.0.0.0:8000 --reload proj.wsgi
+        ports: 
+            - 8000:8000
+        volumes:
+            - .:/opt/beertracker
