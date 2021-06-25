@@ -4,6 +4,7 @@ COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 COPY manage.py manage.py
 COPY proj proj
+RUN ./manage.py collectstatic --no-input
 EXPOSE 8000
 COPY entrypoint.sh entrypoint.sh
 ENTRYPOINT [ "/opt/beertracker/entrypoint.sh" ]
