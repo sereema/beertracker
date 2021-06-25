@@ -12,7 +12,12 @@ services:
             DJANGO_DATABASE_URL: "postgres://beertracker:beertracker@database/postgres"
     database:
         image: postgres
+        volumes:
+            - dbdata:/var/lib/postgresql/data
         environment: 
             POSTGRES_USER: beertracker
             POSTGRES_PASSWORD: beertracker
             POSTGRES_DB: beertracker
+
+volumes: 
+    dbdata:
