@@ -1,3 +1,4 @@
+dj_database_url
 Django
 gunicorn[gevent]
 inotify

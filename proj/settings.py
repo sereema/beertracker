@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import dj_database_url
 from os import environ
 from pathlib import Path
 
@@ -81,13 +82,12 @@ WSGI_APPLICATION = "proj.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+DATABASES = {}
 
+environ.setdefault(
+    "DJANGO_DATABASE_URL", "sqlite:///{}".format(BASE_DIR / "db.sqlite3")
+)
+DATABASES["default"] = dj_database_url.config(env="DJANGO_DATABASE_URL")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
