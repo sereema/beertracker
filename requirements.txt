@@ -2,4 +2,5 @@ dj_database_url
 Django
 gunicorn[gevent]
 inotify
+psycopg2-binary
 whitenoise[brotli]

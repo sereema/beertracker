@@ -9,3 +9,10 @@ services:
             - .:/opt/beertracker
         environment: 
             DJANGO_DEBUG: "true"
+            DJANGO_DATABASE_URL: "postgres://beertracker:beertracker@database/postgres"
+    database:
+        image: postgres
+        environment: 
+            POSTGRES_USER: beertracker
+            POSTGRES_PASSWORD: beertracker
+            POSTGRES_DB: beertracker
